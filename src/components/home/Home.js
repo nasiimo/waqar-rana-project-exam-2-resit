@@ -9,7 +9,14 @@ import vrGaming from "../../img/vrGaming.mp4";
 function Home() {
   return (
     <>
-      <video src={vrGaming} maxWidth="100%" autoplay="true" type="video/mp4" />
+      <video
+        src={vrGaming}
+        muted
+        loop
+        maxWidth="100%"
+        autoplay="true"
+        type="video/mp4"
+      />
       <div class="content">
         <div className="form__container">
           <Tabs
