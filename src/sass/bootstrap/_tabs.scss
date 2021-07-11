@@ -1,54 +1,72 @@
+.nav {
+  text-align: center;
+  grid-template-columns: 1fr 1fr;
+  display: grid;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
 .nav-tabs {
   color: white;
   border: none;
 }
-
+.nav-tabs .nav-link {
+  margin-bottom: 30px;
+  color: $color-white;
+}
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  color: $color-mediumPurple;
+}
 .tab-content {
   color: white;
-}
 
+  button {
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+.btn-primary {
+  color: $color-white;
+  background-color: $color-mediumPurple;
+  border: none;
+}
+.btn-primary:hover {
+  color: $color-white;
+  background-color: $color-mediumPurple;
+  border: none;
+}
 .form__container {
-  max-width: 50%;
+  max-width: 700px;
   margin-top: 200px;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
   margin-bottom: 450px;
   margin-left: auto;
   margin-right: auto;
-  padding: 40px;
-  border-radius: 5px;
-  background-color: black;
-}
+  padding: 80px;
+  border-radius: 8px;
+  background-color: #0a0027;
 
-/* Style the video: 100% width and height to cover the entire window */
-#myVideo {
+  hr {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+}
+#backgroundVideo {
   position: fixed;
   right: 0;
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
 }
-
-/* Add some content at the bottom of the video/page */
 .content {
   position: fixed;
-  bottom: 0;
   background: rgba(0, 0, 0, 0.5);
   color: #f1f1f1;
   width: 100%;
-  padding: 20px;
 }
-
-/* Style the button used to pause/play the video */
-#myBtn {
-  width: 200px;
-  font-size: 18px;
-  padding: 10px;
-  border: none;
-  background: #000;
-  color: #fff;
-  cursor: pointer;
-}
-
-#myBtn:hover {
-  background: #ddd;
-  color: black;
+#welcome {
+  text-align: center;
 }
