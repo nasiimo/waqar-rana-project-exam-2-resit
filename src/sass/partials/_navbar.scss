@@ -1,0 +1,17 @@
+.navbar {
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  a,
+  span {
+    color: white !important;
+  }
+}
+.navbar-toggler {
+  border: none;
+  color: white !important;
+}
+
+.navbar-toggler-icon  {
+  color: white !important;
+}
