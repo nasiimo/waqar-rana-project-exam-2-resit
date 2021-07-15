@@ -18,9 +18,11 @@ function Home() {
             transition={false}
             id="noanim-tab-example"
           >
+            {/* REGISTER */}
             <Tab eventKey="home" title="Register">
               <Register />
             </Tab>
+            {/* LOGIN */}
             <Tab eventKey="profile" title="Login">
               <Login />
             </Tab>
