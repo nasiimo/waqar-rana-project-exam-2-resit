@@ -1,74 +1,35 @@
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import React from "react";
-import { useForm, Controller } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-
-const schema = yup.object().shape({
-  email: yup
-    .string()
-    .required("Please enter an email address")
-    .email("Please enter a valid email address"),
-  password: yup
-    .string()
-    .required("Please enter your password")
-    .min(10, "The password must be at least 10 characters"),
-});
+import { useForm } from "react-hook-form";
 
 export default function Register() {
   const {
-    control,
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
+  } = useForm();
 
   function onSubmit(data) {
     console.log(data);
+    var email = data.email;
+    var password = data.password;
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
   }
+
   console.log(errors);
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Group controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Controller
-          name="email"
-          control={control}
-          defaultValue=""
-          render={({ field }) => (
-            <Form.Control
-              id="registerEmail"
-              placeholder="Enter your email"
-              {...field}
-            />
-          )}
-        />
-        {errors.email && <span>{errors.email.message}</span>}
-      </Form.Group>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input placeholder="email" {...register("email")} />
 
-      <Form.Group controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Controller
-          name="password"
-          control={control}
-          defaultValue=""
-          render={({ field }) => (
-            <Form.Control
-              id="registerPassword"
-              placeholder="Enter your password"
-              {...field}
-            />
-          )}
-        />
-        {errors.password && <span>{errors.password.message}</span>}
-      </Form.Group>
+      <input
+        placeholder="password"
+        {...register("password", { required: true })}
+      />
+      {errors.lastName && <span>This field is required</span>}
 
-      <Button variant="primary" type="submit">
-        Register
-      </Button>
-    </Form>
+      <button>Send</button>
+    </form>
   );
 }
