@@ -1,8 +1,8 @@
 import React from "react";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
-import { Register } from "../layout/TabForms";
-import { Login } from "../layout/TabForms";
+import Register from "../forms/Register";
+import Login from "../forms/Login";
 import BackgroundVideo from "./BackgroundVideo";
 
 function Home() {

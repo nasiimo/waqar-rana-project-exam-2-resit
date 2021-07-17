@@ -3,6 +3,9 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import Home from "../home/Home";
+import Browse from "../browse/Browse";
+import Cart from "../cart/Cart";
+import Checkout from "../checkout/checkout";
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,9 +16,9 @@ import {
 function Navigation() {
   return (
     <Router>
-      <Navbar expand="lg">
+      {/*  <Navbar expand="lg">
         <NavLink to="/" exact>
-          <Navbar.Brand>{/* <img src={logo} /> */} Bits & Bots</Navbar.Brand>
+          <Navbar.Brand> Bits & Bots</Navbar.Brand>
         </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -23,12 +26,12 @@ function Navigation() {
             <NavLink to="/" exact className="nav-link">
               Home
             </NavLink>
-            {/* <NavLink to="/login" className="nav-link">
+            <NavLink to="/login" className="nav-link">
               Login
-            </NavLink> */}
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
-      </Navbar>
+      </Navbar> */}
       {/* <Container> */}
       <Switch>
         <Route path="/" exact component={Home} />

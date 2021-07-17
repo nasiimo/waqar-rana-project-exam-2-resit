@@ -1,7 +1,4 @@
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import React from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -12,13 +9,12 @@ const schema = yup.object().shape({
     .email("Please enter a valid email address"),
   password: yup
     .string()
-    .required("Please enter your password")
-    .min(10, "The password must be at least 10 characters"),
+    .required("Please enter your message")
+    .min(10, "The message must be at least 10 characters"),
 });
 
-export default function Login() {
+export default function Register() {
   const {
-    control,
     register,
     handleSubmit,
     formState: { errors },
@@ -27,40 +23,45 @@ export default function Login() {
   });
 
   function onSubmit(data) {
-    console.log(data);
+    const loginEmail = data.email;
+    const loginPassword = data.password;
+
+    if (localStorage.getItem("user")) {
+      const loginDetails = JSON.parse(localStorage.getItem("user"));
+      if (
+        loginEmail === loginDetails.email &&
+        loginPassword === loginDetails.password
+      ) {
+        console.log("login successfull"); //redirect to Browse page
+      } else {
+        console.log("Wrong credentials"); // An alert should appear telling wrong creds
+      }
+    } else {
+      console.log("Not a registered user");
+    }
   }
 
-  console.log(errors);
+  /* console.log(errors); */
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Group controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Controller
-          name="email"
-          control={control}
-          defaultValue=""
-          render={({ field }) => (
-            <Form.Control placeholder="Enter your email" {...field} />
-          )}
-        />
-        {errors.email && <span>{errors.email.message}</span>}
-      </Form.Group>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <label>Email address</label>
+      <input
+        id="tabFormInput"
+        name="email"
+        placeholder="Enter your email"
+        {...register("email")}
+      />
+      {errors.email && <span>{errors.email.message}</span>}
+      <label>Password</label>
+      <input
+        id="tabFormInput"
+        name="password"
+        placeholder="Enter your password"
+        {...register("password", { required: true })}
+      />
+      {errors.password && <span>This field is required</span>}
 
-      <Form.Group controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Controller
-          name="password"
-          control={control}
-          defaultValue=""
-          render={({ field }) => (
-            <Form.Control placeholder="Enter your password" {...field} />
-          )}
-        />
-        {errors.password && <span>{errors.password.message}</span>}
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Login
-      </Button>
-    </Form>
+      <button id="tabFormButton">Login</button>
+    </form>
   );
 }
