@@ -2,10 +2,11 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
-import Home from "../home/Home";
+import LandingPage from "../landingPage/LandingPage";
 import Browse from "../browse/Browse";
 import Cart from "../cart/Cart";
 import Checkout from "../checkout/checkout";
+import { Redirect } from "react-router-dom";
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,26 +17,34 @@ import {
 function Navigation() {
   return (
     <Router>
-      {/*  <Navbar expand="lg">
-        <NavLink to="/" exact>
+      <Navbar expand="lg">
+        <NavLink to="/browse" exact>
           <Navbar.Brand> Bits & Bots</Navbar.Brand>
         </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <NavLink to="/" exact className="nav-link">
-              Home
+            <NavLink to="/browse" exact className="nav-link">
+              Browse
             </NavLink>
-            <NavLink to="/login" className="nav-link">
-              Login
+            <NavLink to="/checkout" className="nav-link">
+              Checkout
+            </NavLink>
+            <NavLink to="/cart" className="nav-link">
+              Cart
+            </NavLink>
+            <NavLink to="/landingPage" className="nav-link">
+              Logout
             </NavLink>
           </Nav>
         </Navbar.Collapse>
-      </Navbar> */}
+      </Navbar>
       {/* <Container> */}
       <Switch>
-        <Route path="/" exact component={Home} />
-        {/* <Route path="/login" component={Login} /> */}
+        <Route exact path="/browse" component={Browse} />
+        <Route exact path="/checkout" component={Checkout} />
+        <Route exact path="/cart" component={Cart} />
+        <Route exact path="/landingPage" component={LandingPage} />
       </Switch>
       {/* </Container> */}
     </Router>

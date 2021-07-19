@@ -1,7 +1,9 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 const schema = yup.object().shape({
   email: yup
     .string()
@@ -13,7 +15,8 @@ const schema = yup.object().shape({
     .min(10, "The message must be at least 10 characters"),
 });
 
-export default function Register() {
+export default function Login() {
+  const history = useHistory();
   const {
     register,
     handleSubmit,
@@ -32,7 +35,8 @@ export default function Register() {
         loginEmail === loginDetails.email &&
         loginPassword === loginDetails.password
       ) {
-        console.log("login successfull"); //redirect to Browse page
+        console.log("login successfull");
+        history.push("/browse"); //redirect to Browse page
       } else {
         console.log("Wrong credentials"); // An alert should appear telling wrong creds
       }
@@ -60,7 +64,6 @@ export default function Register() {
         {...register("password", { required: true })}
       />
       {errors.password && <span>This field is required</span>}
-
       <button id="tabFormButton">Login</button>
     </form>
   );

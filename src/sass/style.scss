@@ -1,8 +1,5 @@
-/* Partials */
 @import "./partials/typography";
 @import "./partials/navbar";
 @import "./partials/variables";
-
-/* Bootstrap components */
-@import "./bootstrap/jumbotron";
-@import "./bootstrap/tabs";
+@import "./partials/browse";
+@import "./partials/landingpage";

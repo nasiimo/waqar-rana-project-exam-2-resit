@@ -1,60 +1,50 @@
-.nav {
-  text-align: center;
-  grid-template-columns: 1fr 1fr;
-  display: grid;
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
-}
-.nav-tabs {
-  color: white;
-  border: none;
-}
-.nav-tabs .nav-link {
-  margin-bottom: 30px;
-  color: $color-white;
-}
-.nav-tabs .nav-item.show .nav-link,
-.nav-tabs .nav-link.active {
-  color: $color-mediumPurple;
-}
-.tab-content {
-  color: white;
-
-  button {
-    width: 100%;
-    margin-top: 30px;
-  }
-}
-.btn-primary {
-  color: $color-white;
-  background-color: $color-mediumPurple;
-  border: none;
-}
-.btn-primary:hover {
-  color: $color-white;
-  background-color: $color-mediumPurple;
-  border: none;
-}
-.form__container {
-  max-width: 700px;
-  margin-top: 200px;
-  margin-bottom: 400px !important;
-  @media screen and (max-width: 500px) {
+#landingPage {
+  .content {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
     width: 100%;
   }
+  .nav {
+    text-align: center;
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+  .nav-tabs {
+    color: white;
+    border: none;
+  }
+  .nav-tabs .nav-link {
+    margin-bottom: 30px;
+    color: $color-white;
+  }
+  .nav-tabs .nav-item.show .nav-link,
+  .nav-tabs .nav-link.active {
+    color: $color-mediumPurple;
+  }
+  .tab-content {
+    color: white;
 
-  margin-left: auto;
-  margin-right: auto;
-  padding: 80px;
-  border-radius: 8px;
-  background-color: #0a0027;
-
-  hr {
-    margin-top: 40px;
-    margin-bottom: 40px;
+    button {
+      width: 100%;
+      margin-top: 30px;
+    }
+  }
+  .btn-primary {
+    color: $color-white;
+    background-color: $color-mediumPurple;
+    border: none;
+  }
+  .btn-primary:hover {
+    color: $color-white;
+    background-color: $color-mediumPurple;
+    border: none;
   }
 }
+
 #backgroundVideo {
   position: fixed;
   right: 0;
@@ -62,12 +52,24 @@
   min-width: 100%;
   min-height: 100%;
 }
-.content {
-  position: fixed;
-  background: rgba(0, 0, 0, 0.5);
-  color: #f1f1f1;
-  width: 100%;
+.form__container {
+  max-width: 700px;
+  margin-top: 200px;
+  margin-bottom: 400px !important;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 80px;
+  border-radius: 8px;
+  background-color: #0a0027;
+  hr {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 }
+
 #welcome {
   text-align: center;
 }
