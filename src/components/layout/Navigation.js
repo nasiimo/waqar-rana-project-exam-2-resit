@@ -44,7 +44,7 @@ function Navigation() {
         <Route exact path="/browse" component={Browse} />
         <Route exact path="/checkout" component={Checkout} />
         <Route exact path="/cart" component={Cart} />
-        <Route exact path="/landingPage" component={LandingPage} />
+        <Route exact path="/" component={LandingPage} />
       </Switch>
       {/* </Container> */}
     </Router>
