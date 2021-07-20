@@ -33,9 +33,9 @@ export default function Login() {
         loginPassword === loginDetails.password
       ) {
         console.log("login successfull");
-        window.location = "/browse"; /* history.push("/browse"); */ //redirect to Browse page
+        window.location = "/browse";
       } else {
-        console.log("Wrong credentials"); // An alert should appear telling wrong creds
+        console.log("Wrong credentials");
       }
     } else {
       console.log("Not a registered user");

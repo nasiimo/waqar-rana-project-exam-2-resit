@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { registerUser } from "../../auth/auth.service";
 
 const schema = yup.object().shape({
   email: yup
@@ -23,11 +24,19 @@ export default function Register() {
   });
 
   function onSubmit(data) {
-    let user = {
+    registerUser(data);
+    const registerSuccess = registerUser(data);
+    if (registerSuccess) {
+      console.log("success");
+    } else {
+      console.log("failure");
+    }
+
+    /*  let user = {
       email: data.email,
       password: data.password,
     };
-    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("user", JSON.stringify(user)); */
   }
 
   /* console.log(errors); */
