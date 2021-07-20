@@ -1,7 +1,6 @@
 import React from "react";
 import Banner from "../layout/Banner";
 import axios from "axios";
-/* import GetGames from "./GetGames"; */
 
 function getGames() {
   axios({
