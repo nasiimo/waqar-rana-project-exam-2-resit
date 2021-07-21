@@ -11,6 +11,7 @@ import {
   Route,
   NavLink,
 } from "react-router-dom";
+import GameDetail from "../browse/GameDetail";
 
 function Navigation() {
   return (
@@ -43,6 +44,7 @@ function Navigation() {
         <Route exact path="/checkout" component={Checkout} />
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/" component={LandingPage} />
+        <Route path="/detail/:id" component={GameDetail} />
       </Switch>
       {/* </Container> */}
     </Router>

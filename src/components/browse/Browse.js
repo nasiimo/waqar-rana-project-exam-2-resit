@@ -1,27 +1,11 @@
 import React from "react";
 import Banner from "../layout/Banner";
-import axios from "axios";
+import { allGames } from "../../json/games";
+import { getGamesInPlatformGenre } from "../../json/games";
+import RenderGames from "../../json/games";
+import RenderGenres from "../../json/genres";
 
 export default function Browse() {
-  function getGames() {
-    axios({
-      url: "https://api.igdb.com/v4/games",
-      method: "POST",
-      headers: {
-        crossDomain: true,
-        Accept: "application/json",
-        "Client-ID": "e3l9ba3mly88sp4zahv6tu1qf3fp9v",
-        Authorization: "Bearer tfukvraqvvpmw12c1g44hwxhjqbw6e",
-      },
-      data: "fields name,genres.name,slug; where screenshots != null;",
-    })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }
   return (
     <>
       <Banner
@@ -32,9 +16,8 @@ export default function Browse() {
         backgroundColor="#410275"
         textAlign="center"
       />
-      <button onClick={getGames} id="tabFormButton">
-        Login
-      </button>
+      {/* <RenderGames /> */}
+      <RenderGenres />
     </>
   );
 }
