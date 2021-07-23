@@ -3,6 +3,123 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import GamingControl from "../img/gamingControl.jpeg";
+
+/* function addToCart(game) {
+  let games = JSON.parse(localStorage.getItem("games"));
+
+  // What happens if games === null?
+
+  if (Array.isArray(games)) {
+    const gameIndex = games.findIndex(
+      (storedGame) => storedGame.id === game.id
+    );
+    if (gameIndex === -1) {
+      // -1 = Not Found
+      games.push(game); // Save new game
+    } else {
+      games[gameIndex] = game; // Overwrite old game
+    }
+  } else {
+    games = [game]; // Initialise with new array containing our game
+  }
+
+  localStorage.setItem("games", JSON.stringify(games));
+} */
+
+export function PlatformGames() {
+  console.log("Checkpoint A");
+  return getGamesInPlatformGenre.map(function (game) {
+    return (
+      <div className="displayGames">
+        <Col>
+          <Card style={{ width: "15rem" }}>
+            <Card.Img variant="top" src={GamingControl} />
+            <Card.Body>
+              <Card.Title>
+                <Link
+                  key={game.id}
+                  to={{
+                    pathname: `/detail/${game.id}`,
+                    state: { game },
+                  }}
+                >
+                  {game.name}
+                </Link>
+              </Card.Title>
+              <Card.Text>
+                <Link
+                  key={game.id}
+                  to={{
+                    pathname: `/detail/${game.id}`,
+                    state: { game },
+                  }}
+                >
+                  {game.slug}
+                </Link>
+              </Card.Text>
+              <Button /* onClick={() => addToCart(game)} */ id="tabFormButton">
+                Add to cart
+              </Button>
+              <i
+                className="far fa-heart"
+                data-id={game.id}
+                data-name={game.name}
+              ></i>
+            </Card.Body>
+          </Card>
+        </Col>
+      </div>
+    );
+  });
+}
+
+function handleFavs() {
+  const favButtons = document.querySelectorAll(".displayGames i");
+
+  favButtons.forEach((button) => {
+    button.addEventListener("click", handle);
+  });
+
+  function handle() {
+    this.classList.toggle("fa");
+    this.classList.toggle("far");
+
+    const id = this.dataset.id;
+    const name = this.dataset.name;
+
+    const currentFavs = getExistingFavs();
+
+    const productExists = currentFavs.find(function (fav) {
+      return fav.id === id;
+    });
+
+    if (!productExists) {
+      const product = { id: id, name: name };
+      currentFavs.push(product);
+      saveFavs(currentFavs);
+    } else {
+      const newFavs = currentFavs.filter((fav) => fav.id !== id);
+      saveFavs(newFavs);
+    }
+  }
+}
+
+setTimeout(handleFavs, 250);
+
+function getExistingFavs() {
+  const favs = localStorage.getItem("favourites");
+
+  if (!favs) {
+    return [];
+  } else {
+    return JSON.parse(favs);
+  }
+}
+
+function saveFavs(favs) {
+  localStorage.setItem("favourites", JSON.stringify(favs));
+}
 
 /*  function getGames() {
     axios({
@@ -839,30 +956,3 @@ export var allGames = [
   getGamesInPlatformGenre,
   getGamesInPuzzleGenre,
 ];
-
-export function PlatformGames() {
-  return getGamesInPlatformGenre.map(function (game) {
-    return (
-      <Link
-        key={game.id}
-        to={{
-          pathname: `/game/detail/${game.id}`,
-          game,
-        }}
-      >
-        <Col>
-          <Card style={{ width: "15rem" }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-              <Card.Title>
-                <h3>{game.name}</h3>
-              </Card.Title>
-              <Card.Text>Slug</Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Link>
-    );
-  });
-}

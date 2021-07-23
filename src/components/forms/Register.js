@@ -24,19 +24,19 @@ export default function Register() {
   });
 
   function onSubmit(data) {
-    registerUser(data);
+    /* registerUser(data);
     const registerSuccess = registerUser(data);
     if (registerSuccess) {
       console.log("success");
     } else {
       console.log("failure");
-    }
+    } */
 
-    /*  let user = {
+    let user = {
       email: data.email,
       password: data.password,
     };
-    localStorage.setItem("user", JSON.stringify(user)); */
+    localStorage.setItem("user", JSON.stringify(user));
   }
 
   /* console.log(errors); */

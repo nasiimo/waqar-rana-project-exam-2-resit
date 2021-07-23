@@ -1,11 +1,19 @@
 import React from "react";
+import Banner from "../layout/Banner";
 
-function checkout() {
+function Checkout() {
   return (
-    <div>
-      <h1>Checkout</h1>
-    </div>
+    <>
+      <Banner
+        color="white"
+        paddingTop="100px"
+        minHeight="50vh"
+        heading="Checkout"
+        backgroundColor="#410275"
+        textAlign="center"
+      />
+    </>
   );
 }
 
-export default checkout;
+export default Checkout;

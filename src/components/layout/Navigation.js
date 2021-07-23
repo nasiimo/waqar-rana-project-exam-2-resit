@@ -4,7 +4,8 @@ import Nav from "react-bootstrap/Nav";
 import LandingPage from "../landingPage/LandingPage";
 import Browse from "../browse/Browse";
 import Cart from "../cart/Cart";
-import Checkout from "../checkout/checkout";
+import Checkout from "../checkout/Checkout";
+
 import {
   BrowserRouter as Router,
   Switch,

@@ -1,10 +1,16 @@
 import React from "react";
+import Banner from "../layout/Banner";
 
 function Cart() {
   return (
-    <div>
-      <h1>Cart</h1>
-    </div>
+    <Banner
+      color="white"
+      paddingTop="100px"
+      minHeight="30vh"
+      heading="Checkout"
+      backgroundColor="#410275"
+      textAlign="center"
+    />
   );
 }
 

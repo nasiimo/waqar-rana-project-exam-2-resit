@@ -79,4 +79,27 @@
     padding-right: 15px;
     padding-left: 15px;
   }
+
+  .nav-pills .nav-link.active,
+  .nav-pills .show > .nav-link {
+    color: white;
+    background-color: $color-mediumPurple;
+    border: none;
+  }
+  a {
+    color: purple;
+  }
+}
+
+.displayGames  {
+  .card-title {
+    margin-bottom: 200rem;
+  }
+}
+.card-title {
+  color: $color-mediumPurple;
+}
+
+.card-text {
+  color: $color-lightPurple;
 }
