@@ -17,6 +17,17 @@ function RenderCart() {
     saveFavs(filteredFavourites);
     setFavs(filteredFavourites);
   }
+
+  const [disabled, setDisabled] = useState(false);
+  function toCheckout() {
+    /* const button = document.querySelector(".to-checkout"); */
+    if (favourites.length === 0) {
+      /* button.disabled = true; */
+      setDisabled(true);
+    } else {
+      window.location = "/checkout";
+    }
+  }
   return (
     <div>
       <Container>
@@ -46,7 +57,14 @@ function RenderCart() {
           <Col xs={12} md={12} lg={4}>
             <div className="toCheckout">
               <h5>Proceed to checkout</h5>
-              <button id="tabFormButton">Checkout</button>
+              <button
+                className="to-checkout"
+                disabled={disabled}
+                onClick={toCheckout}
+                id="tabFormButton"
+              >
+                Checkout
+              </button>
               <img alt="payment-icons" src={Payments} />
             </div>
           </Col>
