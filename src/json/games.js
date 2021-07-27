@@ -4,7 +4,8 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import GamingControl from "../img/gamingControl.jpeg";
-
+import getExistingFavs from "../components/cart/getCartItems";
+import { saveFavs } from "../components/localStorage/localStorage";
 /* function addToCart(game) {
   let games = JSON.parse(localStorage.getItem("games"));
 
@@ -28,7 +29,6 @@ import GamingControl from "../img/gamingControl.jpeg";
 } */
 
 export function PlatformGames() {
-  console.log("Checkpoint A");
   return getGamesInPlatformGenre.map(function (game) {
     return (
       <div className="displayGames">
@@ -58,14 +58,14 @@ export function PlatformGames() {
                   {game.slug}
                 </Link>
               </Card.Text>
-              <Button /* onClick={() => addToCart(game)} */ id="tabFormButton">
+              <Button id="tabFormButton">
                 Add to cart
+                <i
+                  className="far fa-heart"
+                  data-id={game.id}
+                  data-name={game.name}
+                ></i>
               </Button>
-              <i
-                className="far fa-heart"
-                data-id={game.id}
-                data-name={game.name}
-              ></i>
             </Card.Body>
           </Card>
         </Col>
@@ -106,21 +106,11 @@ function handleFavs() {
 }
 
 setTimeout(handleFavs, 250);
-
-function getExistingFavs() {
-  const favs = localStorage.getItem("favourites");
-
-  if (!favs) {
-    return [];
-  } else {
-    return JSON.parse(favs);
-  }
-}
-
+/* 
 function saveFavs(favs) {
   localStorage.setItem("favourites", JSON.stringify(favs));
 }
-
+ */
 /*  function getGames() {
     axios({
       url: "https://api.igdb.com/v4/games",
