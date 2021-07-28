@@ -8,7 +8,6 @@ export default function Banner(props) {
     marginBottom: props.marginBottom,
     paddingTop: props.paddingTop,
     color: props.color,
-    /* backgroundImage: `url(${props.backgroundImage})`, */
     backgroundColor: props.backgroundColor,
     textAlign: props.textAlign,
   };

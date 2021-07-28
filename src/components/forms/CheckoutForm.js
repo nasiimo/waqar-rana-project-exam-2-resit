@@ -51,7 +51,12 @@ function CheckoutForm() {
     setShowModal(true);
   }
 
-  console.log(errors);
+  const onHide = () => setShowModal(false);
+
+  function resetFavourites() {
+    localStorage.setItem("favourites", JSON.stringify(new Array()));
+    window.location = "/browse";
+  }
 
   return (
     <div className="checkout-form-container">
@@ -132,7 +137,11 @@ function CheckoutForm() {
           <button>Submit</button>
         </div>
       </form>
-      <PaymentModal show={showModal} />
+      <PaymentModal
+        show={showModal}
+        onHide={onHide}
+        onConfirm={resetFavourites}
+      />
     </div>
   );
 }

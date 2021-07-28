@@ -2,8 +2,11 @@ import React from "react";
 import Banner from "../layout/Banner";
 import CheckoutForm from "../forms/CheckoutForm";
 import Container from "react-bootstrap/Container";
+import getExistingFavs from "../cart/getCartItems";
 
 function Checkout() {
+  const numberOfGames = getExistingFavs();
+
   return (
     <>
       <Banner
@@ -15,6 +18,7 @@ function Checkout() {
         textAlign="center"
       />
       <Container>
+        <p>Total number of games is {numberOfGames.length}</p>
         <CheckoutForm />
       </Container>
     </>

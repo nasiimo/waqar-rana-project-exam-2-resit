@@ -39,7 +39,6 @@ function Navigation() {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      {/* <Container> */}
       <Switch>
         <Route exact path="/browse" component={Browse} />
         <Route exact path="/checkout" component={Checkout} />
@@ -47,7 +46,6 @@ function Navigation() {
         <Route exact path="/" component={LandingPage} />
         <Route path="/detail/:id" component={GameDetail} />
       </Switch>
-      {/* </Container> */}
     </Router>
   );
 }

@@ -20,12 +20,18 @@ function RenderCart() {
 
   const [disabled, setDisabled] = useState(false);
   function toCheckout() {
-    /* const button = document.querySelector(".to-checkout"); */
     if (favourites.length === 0) {
-      /* button.disabled = true; */
       setDisabled(true);
     } else {
       window.location = "/checkout";
+    }
+  }
+
+  function checkCart() {
+    if (favourites.length === 0) {
+      //display "cart is empty"
+    } else {
+      //load all games from ls
     }
   }
   return (
@@ -68,9 +74,6 @@ function RenderCart() {
               <img alt="payment-icons" src={Payments} />
             </div>
           </Col>
-        </Row>
-        <Row>
-          <Col></Col>
         </Row>
       </Container>
     </div>

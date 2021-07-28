@@ -2,24 +2,26 @@ import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
-function PaymentModal() {
+function PaymentModal(props) {
   return (
-    <div>
-      <Modal.Dialog>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
-        </Modal.Header>
+    <Modal show={props.show}>
+      <Modal.Header closeButton>
+        <Modal.Title>Confirm payment</Modal.Title>
+      </Modal.Header>
 
-        <Modal.Body>
-          <p>Modal body text goes here.</p>
-        </Modal.Body>
+      <Modal.Body>
+        <p>Please confirm your payment.</p>
+      </Modal.Body>
 
-        <Modal.Footer>
-          <Button variant="secondary">Close</Button>
-          <Button variant="primary">Save changes</Button>
-        </Modal.Footer>
-      </Modal.Dialog>
-    </div>
+      <Modal.Footer>
+        <Button onClick={props.onHide} variant="secondary">
+          Close
+        </Button>
+        <Button onClick={props.onConfirm} variant="primary">
+          Confirm payment
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
 }
 
