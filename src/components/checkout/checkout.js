@@ -2,7 +2,7 @@ import React from "react";
 import Banner from "../layout/Banner";
 import CheckoutForm from "../forms/CheckoutForm";
 import Container from "react-bootstrap/Container";
-import getExistingFavs from "../cart/getCartItems";
+import { getExistingFavs } from "../localStorage/localStorage";
 
 function Checkout() {
   const numberOfGames = getExistingFavs();

@@ -2,7 +2,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import React from "react";
-import getExistingFavs from "./getCartItems";
+import { getExistingFavs } from "../localStorage/localStorage";
 import gamingControl from "../../img/gamingControl3.jpeg";
 import Payments from "../../img/payments.jpeg";
 import { useState } from "react";

@@ -1,32 +1,9 @@
-import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import GamingControl from "../img/gamingControl.jpeg";
-import getExistingFavs from "../components/cart/getCartItems";
-import { saveFavs } from "../components/localStorage/localStorage";
-/* function addToCart(game) {
-  let games = JSON.parse(localStorage.getItem("games"));
-
-  // What happens if games === null?
-
-  if (Array.isArray(games)) {
-    const gameIndex = games.findIndex(
-      (storedGame) => storedGame.id === game.id
-    );
-    if (gameIndex === -1) {
-      // -1 = Not Found
-      games.push(game); // Save new game
-    } else {
-      games[gameIndex] = game; // Overwrite old game
-    }
-  } else {
-    games = [game]; // Initialise with new array containing our game
-  }
-
-  localStorage.setItem("games", JSON.stringify(games));
-} */
+import { handleFavs } from "../components/localStorage/localStorage";
 
 export function PlatformGames() {
   return getGamesInPlatformGenre.map(function (game) {
@@ -74,43 +51,8 @@ export function PlatformGames() {
   });
 }
 
-function handleFavs() {
-  const favButtons = document.querySelectorAll(".displayGames i");
-
-  favButtons.forEach((button) => {
-    button.addEventListener("click", handle);
-  });
-
-  function handle() {
-    this.classList.toggle("fa");
-    this.classList.toggle("far");
-
-    const id = this.dataset.id;
-    const name = this.dataset.name;
-
-    const currentFavs = getExistingFavs();
-
-    const productExists = currentFavs.find(function (fav) {
-      return fav.id === id;
-    });
-
-    if (!productExists) {
-      const product = { id: id, name: name };
-      currentFavs.push(product);
-      saveFavs(currentFavs);
-    } else {
-      const newFavs = currentFavs.filter((fav) => fav.id !== id);
-      saveFavs(newFavs);
-    }
-  }
-}
-
 setTimeout(handleFavs, 250);
-/* 
-function saveFavs(favs) {
-  localStorage.setItem("favourites", JSON.stringify(favs));
-}
- */
+
 /*  function getGames() {
     axios({
       url: "https://api.igdb.com/v4/games",
