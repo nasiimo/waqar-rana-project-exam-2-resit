@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { checkUserMatches } from "../../auth/auth.service";
 
 const schema = yup.object().shape({
   email: yup
@@ -23,23 +24,7 @@ export default function Login() {
   });
 
   function onSubmit(data) {
-    const loginEmail = data.email;
-    const loginPassword = data.password;
-
-    if (localStorage.getItem("user")) {
-      const loginDetails = JSON.parse(localStorage.getItem("user"));
-      if (
-        loginEmail === loginDetails.email &&
-        loginPassword === loginDetails.password
-      ) {
-        console.log("login successfull");
-        window.location = "/browse";
-      } else {
-        console.log("Wrong credentials");
-      }
-    } else {
-      console.log("Not a registered user");
-    }
+    checkUserMatches(data);
   }
 
   return (

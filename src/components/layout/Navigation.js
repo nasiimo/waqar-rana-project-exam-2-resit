@@ -5,7 +5,6 @@ import LandingPage from "../landingPage/LandingPage";
 import Browse from "../browse/Browse";
 import Cart from "../cart/Cart";
 import Checkout from "../checkout/Checkout";
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,9 +13,9 @@ import {
 } from "react-router-dom";
 import GameDetail from "../browse/GameDetail";
 
-function Navigation() {
-  return (
-    <Router>
+function Navigation(props) {
+  if (props.show) {
+    return (
       <Navbar expand="lg">
         <NavLink to="/browse" exact>
           <Navbar.Brand> Bits & Bots</Navbar.Brand>
@@ -33,21 +32,22 @@ function Navigation() {
             <NavLink to="/cart" className="nav-link">
               Cart
             </NavLink>
-            <NavLink to="/landingPage" className="nav-link">
+            <NavLink onClick={logOut} to="/landingPage" className="nav-link">
               Logout
             </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      <Switch>
-        <Route exact path="/browse" component={Browse} />
-        <Route exact path="/checkout" component={Checkout} />
-        <Route exact path="/cart" component={Cart} />
-        <Route exact path="/" component={LandingPage} />
-        <Route path="/detail/:id" component={GameDetail} />
-      </Switch>
-    </Router>
-  );
+    );
+  } else {
+    return <div></div>;
+  }
 }
 
 export default Navigation;
+
+function logOut() {
+  localStorage.clear();
+  sessionStorage.clear();
+  window.location = "/";
+}

@@ -28,7 +28,7 @@ export default function Register() {
       email: data.email,
       password: data.password,
     };
-    localStorage.setItem("user", JSON.stringify(user));
+    registerUser(data);
   }
 
   return (
