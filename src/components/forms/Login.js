@@ -42,7 +42,6 @@ export default function Login() {
     }
   }
 
-  /* console.log(errors); */
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>Email address</label>

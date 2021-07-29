@@ -1,6 +1,6 @@
 import React from "react";
 import Banner from "../layout/Banner";
-import RenderGenres from "../../json/genres";
+import RenderGenres from "../genres/RenderGenres";
 
 export default function Browse() {
   return (

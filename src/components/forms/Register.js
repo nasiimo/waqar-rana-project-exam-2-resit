@@ -24,14 +24,6 @@ export default function Register() {
   });
 
   function onSubmit(data) {
-    /* registerUser(data);
-    const registerSuccess = registerUser(data);
-    if (registerSuccess) {
-      console.log("success");
-    } else {
-      console.log("failure");
-    } */
-
     let user = {
       email: data.email,
       password: data.password,
@@ -39,7 +31,6 @@ export default function Register() {
     localStorage.setItem("user", JSON.stringify(user));
   }
 
-  /* console.log(errors); */
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>Email address</label>

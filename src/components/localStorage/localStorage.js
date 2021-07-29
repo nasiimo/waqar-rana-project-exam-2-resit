@@ -1,3 +1,4 @@
+/* This function is for saving games in ls */
 export function saveFavs(favs) {
   localStorage.setItem("favourites", JSON.stringify(favs));
 }

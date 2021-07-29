@@ -2,12 +2,12 @@ import { Jumbotron } from "react-bootstrap";
 
 export default function Banner(props) {
   const bannerStyle = {
+    color: props.color,
     minHeight: props.minHeight,
     maxHeight: props.maxHeight,
     marginTop: props.marginTop,
     marginBottom: props.marginBottom,
     paddingTop: props.paddingTop,
-    color: props.color,
     backgroundColor: props.backgroundColor,
     textAlign: props.textAlign,
   };
