@@ -1,17 +1,7 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import LandingPage from "../landingPage/LandingPage";
-import Browse from "../browse/Browse";
-import Cart from "../cart/Cart";
-import Checkout from "../checkout/Checkout";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  NavLink,
-} from "react-router-dom";
-import GameDetail from "../browse/GameDetail";
+import { BrowserRouter as Router, NavLink } from "react-router-dom";
 
 function Navigation(props) {
   if (props.show) {
