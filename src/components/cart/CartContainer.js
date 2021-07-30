@@ -1,33 +1,30 @@
 import gamingControl from "../../img/gamingControl3.jpeg";
 import { useState } from "react";
-import { saveFavs } from "../localStorage/localStorage";
-import { getExistingFavs } from "../localStorage/localStorage";
+import { addToCart } from "../localStorage/localStorage";
+import {
+  /* getExistingFavs */ getExistingGames,
+} from "../localStorage/localStorage";
 
 function CartContainer() {
-  const [favourites, setFavs] = useState(getExistingFavs());
+  const [games, setGames] = useState(/* getExistingFavs */ getExistingGames());
   function removeFromCart(id) {
-    const filteredFavourites = favourites.filter(
-      (favourite) => favourite.id !== id
-    );
-    saveFavs(filteredFavourites);
-    setFavs(filteredFavourites);
+    const filteredGames = games.filter((game) => game.id !== id);
+    addToCart(filteredGames);
+    setGames(filteredGames);
   }
 
-  if (favourites && favourites.length) {
+  if (games && games.length) {
     return (
       <div className="cart-container">
-        {favourites.map((favourite) => {
+        {games.map((game) => {
           return (
             <div className="cart-item-container">
               <div className="cart-item-img">
                 <img src={gamingControl} />
               </div>
               <div className="cart-item-info">
-                <h5>{favourite.name}</h5>
-                <button
-                  class="remove"
-                  onClick={() => removeFromCart(favourite.id)}
-                >
+                <h5>{game.name}</h5>
+                <button class="remove" onClick={() => removeFromCart(game.id)}>
                   Remove
                 </button>
               </div>

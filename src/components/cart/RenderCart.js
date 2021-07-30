@@ -1,17 +1,17 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-import { getExistingFavs } from "../localStorage/localStorage";
+import { getExistingGames } from "../localStorage/localStorage";
 import Payments from "../../img/payments.jpeg";
 import { useState } from "react";
 import CartContainer from "./CartContainer";
 
 function RenderCart() {
-  const [favourites, setFavs] = useState(getExistingFavs());
+  const [games, setGames] = useState(getExistingGames());
 
   const [disabled, setDisabled] = useState(false);
   function toCheckout() {
-    if (favourites.length === 0) {
+    if (games.length === 0) {
       setDisabled(true);
     } else {
       window.location = "/checkout";

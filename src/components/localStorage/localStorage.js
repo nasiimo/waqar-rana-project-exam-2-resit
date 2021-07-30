@@ -1,28 +1,23 @@
-/* This function is for saving games in ls */
-export function saveFavs(favs) {
-  localStorage.setItem("favourites", JSON.stringify(favs));
+export function addToCart(games) {
+  localStorage.setItem("cart", JSON.stringify(games));
 }
 
-/* This function is to retrieve the array of games stored in ls */
-export function getExistingFavs() {
-  const favs = localStorage.getItem("favourites");
+export function getExistingGames() {
+  const games = localStorage.getItem("cart");
 
-  if (!favs) {
+  if (!games) {
     return [];
   } else {
-    return JSON.parse(favs);
+    return JSON.parse(games);
   }
 }
 
-/* This function is executed on the browse page to make a
- button for saving games in ls */
-export function handleFavs() {
-  const favButtons = document.querySelectorAll(".displayGames i");
+export function handleGames() {
+  const addToCartButtons = document.querySelectorAll(".displayGames i");
 
-  favButtons.forEach((button) => {
+  addToCartButtons.forEach((button) => {
     button.addEventListener("click", handle);
   });
-
   function handle() {
     this.classList.toggle("fa");
     this.classList.toggle("far");
@@ -30,19 +25,19 @@ export function handleFavs() {
     const id = this.dataset.id;
     const name = this.dataset.name;
 
-    const currentFavs = getExistingFavs();
+    const currentGames = getExistingGames();
 
-    const productExists = currentFavs.find(function (fav) {
-      return fav.id === id;
+    const gameExists = currentGames.find(function (game) {
+      return game.id === id;
     });
 
-    if (!productExists) {
-      const product = { id: id, name: name };
-      currentFavs.push(product);
-      saveFavs(currentFavs);
+    if (!gameExists) {
+      const game = { id: id, name: name };
+      currentGames.push(game);
+      addToCart(currentGames);
     } else {
-      const newFavs = currentFavs.filter((fav) => fav.id !== id);
-      saveFavs(newFavs);
+      const newGames = currentGames.filter((game) => game.id !== id);
+      addToCart(newGames);
     }
   }
 }

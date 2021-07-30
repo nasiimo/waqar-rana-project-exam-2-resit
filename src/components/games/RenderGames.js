@@ -1,7 +1,7 @@
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { handleFavs } from "../localStorage/localStorage";
+import { handleGames } from "../localStorage/localStorage";
 import GamingControl from "../../img/gamingControl.jpeg";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -53,4 +53,4 @@ function RenderGames(props) {
 
 export default RenderGames;
 
-setTimeout(handleFavs, 250);
+setTimeout(handleGames, 250);

@@ -38,7 +38,14 @@ function GameDetail(props) {
           <Col xs={12} md={6} lg={6}>
             <div className="img-container">
               <Image src={StockImage} fluid />
-              <button id="tabFormButton">Add to cart</button>
+              <button id="tabFormButton">
+                Add to cart
+                <i
+                  className="far fa-heart"
+                  data-id={game.id}
+                  data-name={game.name}
+                ></i>
+              </button>
             </div>
           </Col>
         </Row>

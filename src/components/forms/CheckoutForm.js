@@ -53,8 +53,8 @@ function CheckoutForm() {
 
   const onHide = () => setShowModal(false);
 
-  function resetFavourites() {
-    localStorage.setItem("favourites", JSON.stringify(new Array()));
+  function emptyCart() {
+    localStorage.setItem("cart", JSON.stringify(new Array()));
     window.location = "/browse";
   }
 
@@ -137,11 +137,7 @@ function CheckoutForm() {
           <button>Submit</button>
         </div>
       </form>
-      <PaymentModal
-        show={showModal}
-        onHide={onHide}
-        onConfirm={resetFavourites}
-      />
+      <PaymentModal show={showModal} onHide={onHide} onConfirm={emptyCart} />
     </div>
   );
 }
