@@ -51,19 +51,29 @@ function RenderGenres() {
                   </Row>
                 </Tab.Pane>
                 <Tab.Pane eventKey="second">
-                  <RenderGames games={getGamesInFightingGenre} />
+                  <Row>
+                    <RenderGames games={getGamesInFightingGenre} />
+                  </Row>
                 </Tab.Pane>
                 <Tab.Pane eventKey="third">
-                  <RenderGames games={getGamesInShooterGenre} />
+                  <Row>
+                    <RenderGames games={getGamesInShooterGenre} />
+                  </Row>
                 </Tab.Pane>
                 <Tab.Pane eventKey="fourth">
-                  <RenderGames games={getGamesInMusicGenre} />
+                  <Row>
+                    <RenderGames games={getGamesInMusicGenre} />
+                  </Row>
                 </Tab.Pane>
                 <Tab.Pane eventKey="fifth">
-                  <RenderGames games={getGamesInPlatformGenre} />
+                  <Row>
+                    <RenderGames games={getGamesInPlatformGenre} />
+                  </Row>
                 </Tab.Pane>
                 <Tab.Pane eventKey="sixth">
-                  <RenderGames games={getGamesInPuzzleGenre} />
+                  <Row>
+                    <RenderGames games={getGamesInPuzzleGenre} />
+                  </Row>
                 </Tab.Pane>
               </Tab.Content>
             </Col>

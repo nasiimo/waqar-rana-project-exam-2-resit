@@ -1,7 +1,16 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+<<<<<<< Updated upstream
 import { BrowserRouter as Router, NavLink } from "react-router-dom";
+=======
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink,
+} from "react-router-dom";
+>>>>>>> Stashed changes
 
 function Navigation(props) {
   if (props.show) {
@@ -16,9 +25,9 @@ function Navigation(props) {
             <NavLink to="/browse" exact className="nav-link">
               Browse
             </NavLink>
-            <NavLink to="/checkout" className="nav-link">
+            {/*  <NavLink to="/checkout" className="nav-link">
               Checkout
-            </NavLink>
+            </NavLink> */}
             <NavLink to="/cart" className="nav-link">
               Cart
             </NavLink>

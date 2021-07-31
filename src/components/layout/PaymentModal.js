@@ -14,10 +14,10 @@ function PaymentModal(props) {
       </Modal.Body>
 
       <Modal.Footer>
-        <Button onClick={props.onHide} variant="secondary">
+        <Button className="cancel-payment" onClick={props.onHide}>
           Close
         </Button>
-        <Button onClick={props.onConfirm} variant="primary">
+        <Button className="confirm-payment" onClick={props.onConfirm}>
           Confirm payment
         </Button>
       </Modal.Footer>

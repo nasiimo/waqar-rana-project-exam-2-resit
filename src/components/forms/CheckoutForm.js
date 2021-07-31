@@ -16,7 +16,7 @@ const schema = yup.object().shape({
     .number()
     .required("Please enter your postal code")
     .min(4, "The postal code must be at least 4 characters"),
-  city: yup.string().required("Please enter your postal code"),
+  city: yup.string().required("Please enter your city code"),
   address: yup
     .string()
     .required("Please enter your address")

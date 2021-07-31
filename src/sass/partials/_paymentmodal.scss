@@ -1,0 +1,19 @@
+.confirm-payment {
+  background-color: $color-mediumPurple;
+  color: white;
+  border: none;
+}
+
+.confirm-payment:hover {
+  background-color: $color-mediumPurple;
+}
+
+.cancel-payment {
+  background-color: white;
+  color: $color-mediumPurple;
+  border: 1px solid $color-mediumPurple;
+}
+
+.cancel-payment:hover {
+  background-color: $color-mediumPurple;
+}

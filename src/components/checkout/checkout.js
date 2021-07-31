@@ -5,7 +5,11 @@ import Container from "react-bootstrap/Container";
 import { getExistingGames } from "../localStorage/localStorage";
 
 function Checkout() {
+<<<<<<< Updated upstream
   const numberOfGames = getExistingGames();
+=======
+  const numberOfGamesInCart = getExistingFavs();
+>>>>>>> Stashed changes
 
   return (
     <>
@@ -18,7 +22,7 @@ function Checkout() {
         textAlign="center"
       />
       <Container>
-        <p>Total number of games is {numberOfGames.length}</p>
+        <p>Total number of games in cart: {numberOfGamesInCart.length}</p>
         <CheckoutForm />
       </Container>
     </>
