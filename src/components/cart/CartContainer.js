@@ -20,7 +20,7 @@ function CartContainer() {
           return (
             <div className="cart-item-container">
               <div className="cart-item-img">
-                <img src={gamingControl} />
+                <img alt="game-image" src={gamingControl} />
               </div>
               <div className="cart-item-info">
                 <h5>{game.name}</h5>

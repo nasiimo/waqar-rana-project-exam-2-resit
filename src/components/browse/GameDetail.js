@@ -37,7 +37,7 @@ function GameDetail(props) {
           </Col>
           <Col xs={12} md={6} lg={6}>
             <div className="img-container">
-              <Image src={StockImage} fluid />
+              <Image alt="game specific details image" src={StockImage} fluid />
               <button id="tabFormButton">
                 Add to cart
                 <i

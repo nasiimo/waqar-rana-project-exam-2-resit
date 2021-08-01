@@ -11,7 +11,7 @@ function RenderGames(props) {
       <div className="displayGames">
         <Col>
           <Card style={{ width: "15rem" }}>
-            <Card.Img variant="top" src={GamingControl} />
+            <Card.Img variant="top" alt="gaming-control" src={GamingControl} />
             <Card.Body>
               <Card.Title>
                 <Link
