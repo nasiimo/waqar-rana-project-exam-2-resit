@@ -5,11 +5,7 @@ import Container from "react-bootstrap/Container";
 import { getExistingGames } from "../localStorage/localStorage";
 
 function Checkout() {
-<<<<<<< Updated upstream
-  const numberOfGames = getExistingGames();
-=======
-  const numberOfGamesInCart = getExistingFavs();
->>>>>>> Stashed changes
+  const numberOfGamesInCart = getExistingGames();
 
   return (
     <>

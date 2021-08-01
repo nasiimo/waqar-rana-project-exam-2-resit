@@ -1,16 +1,13 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-<<<<<<< Updated upstream
-import { BrowserRouter as Router, NavLink } from "react-router-dom";
-=======
+
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   NavLink,
 } from "react-router-dom";
->>>>>>> Stashed changes
 
 function Navigation(props) {
   if (props.show) {
